@@ -208,7 +208,7 @@
     ));
 
     const TaskCard = React.memo(({ task, isAdmin, onEdit, onToggleDoing, onToggleStatus }) => (
-      <div onClick={() => isAdmin && onEdit(task)} className={`relative mb-2 rounded-[22px] p-3 transition-all border shadow-sm group backdrop-blur-sm ${isAdmin ? 'active:scale-[0.97] cursor-pointer' : ''} bg-white/90`} style={{ backgroundColor: task.status === 'done' ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.95)', borderColor: task.status === 'doing' ? COLORS.orangeDeep : (task.status === 'done' ? 'transparent' : COLORS.white), opacity: task.status === 'done' ? 0.7 : 1 }}>
+      <div onClick={() => isAdmin && onEdit(task)} className={`relative rounded-[22px] p-3 transition-all border shadow-sm group backdrop-blur-sm ${isAdmin ? 'active:scale-[0.97] cursor-pointer' : ''} bg-white/90`} style={{ backgroundColor: task.status === 'done' ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.95)', borderColor: task.status === 'doing' ? COLORS.orangeDeep : (task.status === 'done' ? 'transparent' : COLORS.white), opacity: task.status === 'done' ? 0.7 : 1 }}>
         {task.status === 'doing' && (
            <div className="absolute inset-0 pointer-events-none z-0">
              <div className="absolute -bottom-2 -left-3 text-[14px] animate-float-particle-1 drop-shadow-sm">🌿</div>
@@ -614,7 +614,7 @@
                     <h2 className="text-[10px] font-black text-gray-400 italic uppercase tracking-[0.3em] opacity-60">Today's Task</h2>
                     <div className="h-[1px] flex-1 bg-gradient-to-r from-[#8EB09D]/40 to-transparent mx-3"></div>
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     {todayTasks.length > 0 ? todayTasks.map(t => <TaskCard key={t.id} task={t} isAdmin={isAdmin} onEdit={handleEditTask} onToggleDoing={toggleDoing} onToggleStatus={toggleStatus} />) : (
                       <div className="text-center py-10 bg-white/30 rounded-[28px] border-2 border-dashed border-[#9BCBE8]/50">
                         <p className="text-[9px] font-bold uppercase tracking-widest opacity-40" style={{ color: COLORS.pinkDeep }}>Sky is clear ✨</p>
@@ -647,7 +647,7 @@
 
                   {isCalendarView && <CalendarView currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} selectedDate={selectedDate} setSelectedDate={setSelectedDate} today={today} tasks={tasks} />}
 
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     {displayedTasks.length > 0 ? displayedTasks.map(t => <TaskCard key={t.id} task={t} isAdmin={isAdmin} onEdit={handleEditTask} onToggleDoing={toggleDoing} onToggleStatus={toggleStatus} />) : (
                       <div className="text-center py-10 bg-white/30 rounded-[28px] border-[4px] border-dashed border-white shadow-sm mt-4">
                         <p className="text-[10px] font-black uppercase tracking-widest opacity-60" style={{ color: COLORS.textSoft }}>
@@ -858,3 +858,4 @@
 </body>
 
 </html>
+
